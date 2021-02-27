@@ -1,0 +1,4 @@
+certs/
+*.pfx
+*.crt
+*.pem
