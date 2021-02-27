@@ -17,17 +17,17 @@ I've read that HomePods can be supplied with a provisioning profile ( https://su
 
 ### Step 1 create a Client certificate
 
-Currently I have not found a way to get around the need to create certificate which is signed by the radius server, so let's generate that first ( this is what the build.sh does ). 
+Currently I have not found a way to get around the need to create certificate which is signed by the radius server, so let's generate that first ( this is what the build.sh does ).
 
-    - Get the certificate of the Radius server (on the UDM-Pro they are stored in /mnt/data/udapi-config/raddb/certs )
-    - Create a certificate signing request for a certificate that the client can use later
-    - Sign that certificate with the certificates we got from the radius server. 
-    - Export the certificate so it can be used with[https://itunes.apple.com/app/apple-configurator-2/id1037126344?mt=12](Apples Mobile Configurator application)
-    - In our case we copy the server.pem certifcate to a file named *Radius Server Certificate.crt* so that Apple Configurator recognizes it as certificate.
+- Get the certificate of the Radius server (on the UDM-Pro they are stored in /mnt/data/udapi-config/raddb/certs )
+- Create a certificate signing request for a certificate that the client can use later
+- Sign that certificate with the certificates we got from the radius server. 
+- Export the certificate so it can be used with[https://itunes.apple.com/app/apple-configurator-2/id1037126344?mt=12](Apples Mobile Configurator application)
+- In our case we copy the server.pem certifcate to a file named *Radius Server Certificate.crt* so that Apple Configurator recognizes it as certificate.
 
 Be aware that this process has to be done every time your server certificate changes. Browsers have it that they no longer accept certificates that are valid more than a year, so I presume that restriction applies for our ssl certificate as well, so I'm generating them only for 365 days. 
 
-'''
+```bash
 #!/bin/bash
 #
 #update this variables accordingly
@@ -45,8 +45,7 @@ openssl req -subj "/C=${country}/O=${organisation}/CN=${certificatename}" -out m
 openssl x509 -req -days 365 -in myclient.csr -CA server.pem -CAkey server-key.pem -CAcreateserial -out myclient.crt -sha256
 openssl pkcs12 -passout "pass:${password}" -export -in myclient.crt -inkey myclient.key -out ../"${certificatename} Certificate.pfx"
 cp server.pem ../"Radius Server Certificate.crt"
-
-'''
+```
 
 ### Step2 create a mobile provisioning profile
 
@@ -62,12 +61,12 @@ In *Certificates* add the *Radius Server Certificate.crt* as well as the certifi
 
 No go to the *Wi-Fi* tab and enter the following:
 
-    - SSID, your wifi name
-    - enable *Auto Join*
-    - Set the other settings to your liking
-    - *Security Type*  *WPA/WPA2 Enterprise* and *WPA2 Enterprise (iOS8 or later.. )* worked for me
-    - *Protocols* enable LEAP/PEAP and set the username, password and certificate according to your server. Outer Identity seems irrelevant
-    - *Trust* Trust the radius server certificate
+- SSID, your wifi name
+- enable *Auto Join*
+- Set the other settings to your liking
+- *Security Type*  *WPA/WPA2 Enterprise* and *WPA2 Enterprise (iOS8 or later.. )* worked for me
+- *Protocols* enable LEAP/PEAP and set the username, password and certificate according to your server. Outer Identity seems irrelevant
+- *Trust* Trust the radius server certificate
 
 <img src="images/AppleConfigurator-WiFi-Identity.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
 <img src="images/AppleConfigurator-WiFi-Trust.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
@@ -78,8 +77,8 @@ Now your are all set and can save the provisioning profile in Apple Configuratio
 
 The easiest way to install the certificate is to mail your certificate to yourself and open that certificate in Mail on an iPhone. You can then install it on the HomePod and verify that it worked inside the Home.app application:
 
-<img src="images/HomeApp-Certificate-01.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
-<img src="images/HomeApp-Certificate-02.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
+<img src="images/HomeApp-Certificate-01.png" style="max-width: 20%; display: block; margin-left: auto; margin-right: auto;" /> 
+<img src="images/HomeApp-Certificate-02.png" style="max-width: 20%; display: block; margin-left: auto; margin-right: auto;" /> 
 
 
 Happy provisioning :-)
