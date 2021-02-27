@@ -59,12 +59,12 @@ In *Certificates* add the *Radius Server Certificate.crt* as well as the certifi
 
 <img src="images/AppleConfigurator-Certificates.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
 
-No go to the *Wi-Fi* tab and enter the following:
+Now go to the *Wi-Fi* tab and enter the following:
 
 - SSID, your wifi name
 - enable *Auto Join*
 - Set the other settings to your liking
-- *Security Type*  *WPA/WPA2 Enterprise* and *WPA2 Enterprise (iOS8 or later.. )* worked for me
+- *Security Type*  **WPA/WPA2 Enterprise** and **WPA2 Enterprise (iOS8 or later.. )** worked for me
 - *Protocols* enable LEAP/PEAP and set the username, password and certificate according to your server. Outer Identity seems irrelevant
 - *Trust* Trust the radius server certificate
 
