@@ -22,7 +22,7 @@ Currently I have not found a way to get around the need to create certificate wh
 - Get the certificate of the Radius server (on the UDM-Pro they are stored in /mnt/data/udapi-config/raddb/certs )
 - Create a certificate signing request for a certificate that the client can use later
 - Sign that certificate with the certificates we got from the radius server. 
-- Export the certificate so it can be used with[https://itunes.apple.com/app/apple-configurator-2/id1037126344?mt=12](Apples Mobile Configurator application)
+- Export the certificate so it can be used with [Apples Mobile Configurator application](https://itunes.apple.com/app/apple-configurator-2/id1037126344?mt=12)
 - In our case we copy the server.pem certifcate to a file named *Radius Server Certificate.crt* so that Apple Configurator recognizes it as certificate.
 
 Be aware that this process has to be done every time your server certificate changes. Browsers have it that they no longer accept certificates that are valid more than a year, so I presume that restriction applies for our ssl certificate as well, so I'm generating them only for 365 days. 
