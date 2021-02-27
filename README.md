@@ -11,7 +11,7 @@ I have UniFi based network equipment and use WPA2-EAP WiFi network access with j
 
 Now we got a HomePod mini and that device uses the same login and password as the user of the Phone which is used to setup the HomePod. Problem is, HomePods update their Wifi network password everytime the user switches it's network. So there is no way to setup a HomePod in a service network and it stays there. As soon as the owners iPhone enters the normal user network the HomePod follows.
 
-I've read that HomePods can be supplied with a provisioning profile ( https://support.apple.com/en-us/HT209643 ), but nowhere I found on how to do that. So is there any way to prevent HomePod from changing networks ? Yes, there is, this is what this document is for.
+I've read that HomePods can be supplied with a provisioning profile ( https://support.apple.com/en-us/HT209643 ), but nowhere I found out how to create such a profile. So is there any way to prevent HomePod from changing networks ? Yes, there is, this is what this document is for.
 
 ## Solution
 
