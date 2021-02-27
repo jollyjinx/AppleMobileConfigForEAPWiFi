@@ -77,8 +77,8 @@ Now your are all set and can save the provisioning profile in Apple Configuratio
 
 The easiest way to install the certificate is to mail your certificate to yourself and open that certificate in Mail on an iPhone. You can then install it on the HomePod and verify that it worked inside the Home.app application:
 
-<img src="images/HomeApp-Certificate-01.png" style="max-width: 20%; display: block; margin-left: auto; margin-right: auto;" /> 
-<img src="images/HomeApp-Certificate-02.png" style="max-width: 20%; display: block; margin-left: auto; margin-right: auto;" /> 
+<img src="images/HomeApp-Certificate-01.png" width="300" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
+<img src="images/HomeApp-Certificate-02.png" width="300" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;" /> 
 
 
 Happy provisioning :-)
