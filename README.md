@@ -1,11 +1,11 @@
-# Apple Mobile profile generation for your Unifi 802.1x EAP network
+# Apple Mobile profile generation for 802.1x WPA2-EAP networks
 
-This guide is a note to myself on how to create a mobile provisioning profile for my Apple Devices ( e.g. HomePod , AppleTV , MacBook , iPhone , etc. ) to automatically connect as correct user to my UniFi EAP network.
+This guide is a note to myself on how to create a mobile provisioning profile for my Apple Devices ( e.g. HomePod , AppleTV , MacBook , iPhone , etc. ) to automatically connect as correct user to my UniFi WPA2-EAP network.
 
 ## Background
 
-My home network is build with multiple VLANs. Users ( internal, dayguests, night guests ) have their own networks and can communicate freely to each other on the network, as well as they can start communication to the service networks ( tv-network, printer/scanner network, solar network ). 
-I have Unifi based network equipemnet and use EAP wifi network access is granted with just username / password. That way my printer, if compromised can't give out anything else but it's network password and an attacker can get only to the service network in which devices can't initiate connections at all.
+My home network is build with multiple VLANs. Users ( internal, day guests, night guests ) have their own networks and can communicate freely to each other on the network, as well as they can start communication to the service networks ( tv-network, printer/scanner network, iot network, solar network ). 
+I have UniFi based network equipment and use WPA2-EAP WiFi network access with just username and password. That way my printer, if compromised can't give out anything else but it's network password and an attacker can get only to the service network in which devices can't initiate connections to other devices at all.
 
 ## HomePod 802.1x problem
 
