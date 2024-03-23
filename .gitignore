@@ -1,4 +1,15 @@
+# macOS Resource Forks
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Outputs/certs
 certs/
 *.pfx
 *.crt
 *.pem
+*.mobileconfig
